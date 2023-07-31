@@ -26,7 +26,9 @@ Below is the screenshot showing successful installation and launch:
 </details> 
 
 <details>
-    
+    <summary>  
+        Iverilog  
+    </summary>  
 
 I installed verilog using following command:  
 sudo apt-get install iverilog  
@@ -35,6 +37,9 @@ Below is the screenhot showing successful installation and launch:
 </details> 
 
 <details>
+<summary>  
+    Gtkwave
+</summary>
     
 I installed gtkwave using following commands:  
 sudo apt install gtkwave  
