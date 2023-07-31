@@ -1,10 +1,10 @@
 # Day 0
-<details>
-    <summary>
-        
-    Yosys
+<details>  
+<summary>  
+Yosys  
     
-    </summary>
+</summary>  
+
     
 I installed Yosys using following commands:  
 
@@ -22,8 +22,7 @@ $ sudo make install
 Below is the screenshot showing successful installation and launch:  
 
 ![Screenshot from 2023-07-31 09-49-23](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/c6031ebd-ee60-40c7-8327-88f82ef83f41)  
-
-</details> 
+</details>
 
 <details>
     <summary>  
