@@ -1,6 +1,7 @@
-# Timeline
+# Table of Contents
 - [Day 0](#day-0)
 - [Day 1](#day-1)
+- [References](#references)
 
 # Day 0
 <details>  
@@ -234,6 +235,11 @@ The netlist files is as shown below:
 
 
 </details>
+
+# References
+1. https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/
+2. https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+3. https://www.vsdiat.com/course_content?uniqueid=20220801054525 
 
 
 
