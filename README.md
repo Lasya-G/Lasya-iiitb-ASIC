@@ -57,7 +57,16 @@ Below is the screenshot showing successful installation and launch:
         NgSpice        
     </summary> 
     Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory.  
-    Now, use the following commands to unpack and install it:  
+    Now, use the following commands to unpack and install it: 
+    
+
+    $ tar -zxvf ngspice-40.tar.gz  
+    $ cd ngspice-40  
+    $ mkdir release  
+    $ cd release  
+    $ ../configure  --with-x --with-readline=yes --disable-debug  
+    $ make  
+    $ sudo make install  
     
     
 </details>
