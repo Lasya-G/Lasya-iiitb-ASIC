@@ -7,6 +7,7 @@ Yosys
 
     
 I installed Yosys using following commands:  
+
 ```
 $ git clone https://github.com/YosysHQ/yosys.git  
 $ cd yosys-master   
@@ -105,6 +106,27 @@ The screenshot of successful installation is attatched below:
     ![Screenshot from 2023-08-08 15-53-55](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/f7ac78ad-b6ca-4351-bf59-c0b64ba0cb9d)
 
     
+</details>
+
+<details>
+<summary>
+    OpenSTA
+</summary>
+I have used following commands to install OpenSTA:   
+    
+```
+git clone https://github.com/The-OpenROAD-Project/OpenSTA.git
+cd OpenSTA
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+The screenshot of successful installation is shown below:
+![Screenshot from 2023-08-08 17-45-01](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/d6732d99-4b05-4f93-9d77-4fdf6cf9a083)
+
 </details>
 
 
