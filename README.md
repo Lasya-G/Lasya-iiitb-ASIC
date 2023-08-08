@@ -55,8 +55,7 @@ Below is the screenshot showing successful installation and launch:
 <details>
     <summary>
         NgSpice        
-    </summary>
-    
+    </summary> 
     Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory.  
     Now, use the following commands to unpack and install it:  
     
