@@ -53,21 +53,57 @@ Below is the screenshot showing successful installation and launch:
 </details>    
 
 <details>
-    <summary>
+<summary>
         NgSpice        
-    </summary> 
-    Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory.  
-    Now, use the following commands to unpack and install it: 
-    
+</summary> 
 
-    $ tar -zxvf ngspice-40.tar.gz  
-    $ cd ngspice-40  
-    $ mkdir release  
-    $ cd release  
-    $ ../configure  --with-x --with-readline=yes --disable-debug  
-    $ make  
-    $ sudo make install  
     
+Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory.  
+Now, use the following commands to unpack and install it:
+
+```
+$ tar -zxvf ngspice-40.tar.gz  
+$ cd ngspice-40  
+$ mkdir release  
+$ cd release  
+$ ../configure  --with-x --with-readline=yes --disable-debug  
+$ make  
+$ sudo make install
+```
+
+The screenshot of successful installation is shown below:
+    ![Screenshot from 2023-08-08 17-12-55](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/acb2abd2-75ff-4f01-985d-409e5dcc48df)
+
+    
+    
+</details>
+
+<details>
+<summary>
+        magic
+</summary>
+
+    
+I have used the following commands for the installation of magic:
+    
+```
+sudo apt-get install m4
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install libx11-dev
+sudo apt-get install tcl-dev tk-dev
+sudo apt-get install libcairo2-dev
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+sudo apt-get install libncurses-dev
+git clone https://github.com/RTimothyEdwards/magic
+cd magic
+./configure
+make
+sudo make install
+```
+The screenshot of successful installation is attatched below:
+    ![Screenshot from 2023-08-08 15-53-55](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/f7ac78ad-b6ca-4351-bf59-c0b64ba0cb9d)
+
     
 </details>
 
