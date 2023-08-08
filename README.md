@@ -50,6 +50,17 @@ sudo apt install gtkwave
 Below is the screenshot showing successful installation and launch:  
 ![Screenshot from 2023-07-31 09-51-21](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/865eae3a-149a-4fe6-89bf-9069cc70f48b)  
 
+</details>    
+
+<details>
+    <summary>
+        NgSpice        
+    </summary>
+    
+    Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory.  
+    Now, use the following commands to unpack and install it:  
+    
+    
 </details>
 
 
