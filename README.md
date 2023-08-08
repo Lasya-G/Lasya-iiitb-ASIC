@@ -55,19 +55,28 @@ Below is the screenshot showing successful installation and launch:
 <details>
     <summary>
         NgSpice
-    </summary>
+    </summary>    
+    
     Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory.    
-    Use the following instructions to unpack and install it:       
-    ```    
-    $ tar -zxvf ngspice-37.tar.gz
-$ cd ngspice-37
-$ mkdir release
-$ cd release
-$ ../configure  --with-x --with-readline=yes --disable-debug
-$ make
-$ sudo make install
-```    
-The screenshot depicting successful installation is shown below:    
+    
+    Use the following instructions to unpack and install it:      
+    
+    ```     
+    
+    $ tar -zxvf ngspice-37.tar.gz    
+$ cd ngspice-37    
+$ mkdir release    
+$ cd release    
+$ ../configure  --with-x --with-readline=yes --disable-debug    
+$ make    
+$ sudo make install    
+
+
+
+```
+    
+The screenshot depicting successful installation is shown below:
+    
 ![Screenshot from 2023-08-08 17-12-55](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/de42fcbd-72c8-4565-9984-9efeaccb5e17)    
  
 </details>
@@ -76,8 +85,10 @@ The screenshot depicting successful installation is shown below:
     <summary>
         magic
     </summary>
-    I have made use of the following commands for the installation of magic:    
+    I have made use of the following commands for the installation of magic:
+    
     ```
+
     $   sudo apt-get install m4
 $   sudo apt-get install tcsh
 $   sudo apt-get install csh
@@ -91,8 +102,10 @@ cd magic
 ./configure
 make
 make install
-```    
-    I have uploaded the screenshot of successful installation below:    
+```
+   
+    I have uploaded the screenshot of successful installation below:     
+    
     ![Screenshot from 2023-08-08 15-53-55](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/3151d535-5b97-4ef5-8871-4898407111b6)
 
 </details>
