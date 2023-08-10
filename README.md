@@ -1,9 +1,10 @@
-# Table of Contents
+## Table of Contents
 - [Day 0](#day-0)
 - [Day 1](#day-1)
+- [Day 2](#day-2)
 - [References](#references)
 
-# Day 0
+## Day 0
 <details>  
 <summary>  
 Yosys  
@@ -142,7 +143,7 @@ The screenshot of successful installation is shown below:
 </details>
 
 
-# Day 1
+## Day 1
 <details>
 <summary>
 1.1 Introduction to iverilog design testbench
@@ -236,7 +237,17 @@ The netlist files is as shown below:
 
 </details>
 
-# References
+## Day 2
+
+<details>
+<summary>
+2.1 Introduction to timing.libs
+</summary>
+
+
+</details>
+
+## References
 1. https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/
 2. https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 3. https://www.vsdiat.com/course_content?uniqueid=20220801054525 
