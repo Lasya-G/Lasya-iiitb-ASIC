@@ -243,6 +243,16 @@ The netlist files is as shown below:
 <summary>
 2.1 Introduction to timing.libs
 </summary>
+Use the following commands to open the lib file:  
+    
+```
+$ gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+Below is the screenshot of the library file:  
+<img width="550" alt="Screenshot from 2023-08-11 15-34-52" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/a4c05c75-fd39-42cf-a870-bdf025f213f6">
+
+
+
 
 
 </details>
