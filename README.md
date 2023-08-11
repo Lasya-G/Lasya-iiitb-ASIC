@@ -1,10 +1,10 @@
-## Table of Contents
+### Table of Contents
 - [Day 0](#day-0)
 - [Day 1](#day-1)
 - [Day 2](#day-2)
 - [References](#references)
 
-## Day 0
+### Day 0
 <details>  
 <summary>  
 Yosys  
@@ -143,7 +143,7 @@ The screenshot of successful installation is shown below:
 </details>
 
 
-## Day 1
+### Day 1
 <details>
 <summary>
 1.1 Introduction to iverilog design testbench
@@ -237,7 +237,7 @@ The netlist files is as shown below:
 
 </details>
 
-## Day 2
+### Day 2
 
 <details>
 <summary>    
