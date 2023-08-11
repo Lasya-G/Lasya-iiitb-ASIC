@@ -240,7 +240,7 @@ The netlist files is as shown below:
 ## Day 2
 
 <details>
-<summary>
+<summary>    
 2.1 Introduction to timing.libs
 </summary>
 Use the following commands to open the lib file:  
@@ -249,7 +249,20 @@ Use the following commands to open the lib file:
 $ gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 Below is the screenshot of the library file:  
-<img width="550" alt="Screenshot from 2023-08-11 15-34-52" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/a4c05c75-fd39-42cf-a870-bdf025f213f6">
+<img width="550" alt="Screenshot from 2023-08-11 15-34-52" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/a4c05c75-fd39-42cf-a870-bdf025f213f6">  
+We have 3 important factors which determines the working of a semiconductor. They are: "**P**", "**V**", "**T**" which stands for Power, Voltage and Temperature respectively which forms the pillar for the working of a design.  
+
+- The Process will have many variations due to fabrication of the transistors.
+- The change in Voltage will effect the behaviour of the circuit.
+- As semiconductors sre sensitive to temperature, even a minimal temperature change may effect the working parameters of the components.
+
+The libraries are mainly characterized to model these variations.  
+
+
+
+
+
+
 
 
 
