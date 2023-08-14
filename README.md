@@ -274,12 +274,14 @@ From the above image, we can depict that the larger means that the cell employs 
 2.2 Hierarchical vs Flat synthesis  
 </summary>  
 
-
 Open the verilog file using the following command:  
 ```
 $ gvim multiple_modules.v
 ```
-This is the verilog file: <img width="550" alt="Screenshot from 2023-08-14 14-37-03" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/e6329842-dd11-4be1-8604-5877315c2f3">  
+This is the verilog file:<img width="550" alt="Screenshot from 2023-08-14 14-37-03" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/7a06bb18-2134-4256-b152-b9546cc96497">  
+
+
+
 
 
 
