@@ -1,4 +1,4 @@
-![image](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/353d3e56-3c5c-4c43-97e8-8e819e485ac5)### Table of Contents
+### Table of Contents
 - [Day 0](#day-0)
 - [Day 1](#day-1)
 - [Day 2](#day-2)
@@ -391,7 +391,9 @@ yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show
 ```
-The output structure of synchronous reset flop is as follows: <img width="550" alt="Screenshot from 2023-08-14 17-31-38" alt="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/6adda943-bf13-4b94-945c-f7dcbefdb7c6">  
+The output structure of synchronous reset flop is as follows: 
+<img width="550" alt="Screenshot from 2023-08-14 17-31-38" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/69539c25-f597-4358-b69d-fb94568a7c7a">   
+
 
 Open the mult files using following command:
 ```
@@ -437,22 +439,6 @@ yosys> write_verilog -noattr mult8_net.v
 yosys> !gvim mult8_net.v
 ```
 The netlist is as follows: <img width="550" alt="Screenshot from 2023-08-14 19-13-53" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/5de4c6a3-6386-41d5-a278-e07e8c499709">  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </details>
