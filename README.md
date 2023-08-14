@@ -1,7 +1,7 @@
 ### Table of Contents
 - [Day 0 - Tools Installation](#day-0---tools-installation)
 - [Day 1 - Introduction to Verilog RTL design and Synthesis](#day-1---introduction-to-verilog-rtl-design-and-synthesis)
-- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](#day-2---timing-libs--hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles) 
+- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](#day-2---timing-libs,-hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles) 
 - [Day 3 - Combinational and sequential optmizations](#day-3---combinational-and-sequential-optmizations)
 - [Day 4](#day-4)
 - [Day 5](#day-5)
@@ -444,6 +444,64 @@ The netlist is as follows: <img width="550" alt="Screenshot from 2023-08-14 19-1
 </details>
 
 ### Day 3 - Combinational and sequential optmizations
+<details>
+<summary>
+Introduction to Logical Optimization
+</summary>  
+  
+The combinational logic optimization is mainly to squeeze the logic to get most optimised design that is efficient in terms of power and area.  
+The techniques used for combinational logic optimisation are:  
+
+- Constant propagation : It is a direct optimisation technique.
+- Boolean Logic Optimization
+
+The techniques used for Sequential Logical Optimization are:
+
+- Sequential constant propagation
+- State Optimization : Optimization of unused states.
+- Retiming
+- Sequential logic cloning (Floor plan aware synthesis)
+
+</details>
+
+<details>
+<summary>
+Combinational Logic Optimizations
+</summary>  
+    
+**opt_check**  
+Invoke yosys and synthesize the opt files using the following commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog opt_check.v 
+yosys> synth -top opt_check
+yosys> opt_clean -purge 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is as follows:
+<img width="550" alt="Screenshot from 2023-08-14 19-52-15" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/d324cee9-4335-49f9-9312-73c52dca1815">  
+
+**opt_check2**  
+synthesize the opt files using the following commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog opt_check2.v 
+yosys> synth -top opt_check2
+yosys> opt_clean -purge 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is as shown:
+<img width="550" alt="Screenshot from 2023-08-14 19-54-22" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/768fd11d-893c-4e06-b880-97976ce800b8">  
+
+
+
+
+
+</details>
 
 ### Day 4  
 
