@@ -1,13 +1,13 @@
 ### Table of Contents
-- [Day 0 - Tools Installation](#day-0---tools-installation)
-- [Day 1 - Introduction to Verilog RTL design and Synthesis](#day-1---introduction-to-verilog-rtl-design-and-synthesis)
-- [Day 2 - Timing libs- hierarchical vs flat synthesis and efficient flop coding styles](#day-2---timing-libs--hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles) 
-- [Day 3 - Combinational and sequential optmizations](#day-3---combinational-and-sequential-optmizations)
-- [Day 4](#day-4)
-- [Day 5](#day-5)
+- [Day 0 - Tools Installation](#day-0)
+- [Day 1 - Introduction to Verilog RTL design and Synthesis](#day-1)
+- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](#day-2) 
+- [Day 3 - Combinational and sequential optmizations](#day-3)
+- [Day 4 - GLS, blocking vs non-blocking and Synthesis-Simulation mismatch](#day-4)
+- [Day 5 -  If, case, for loop and for generate](#day-5)
 - [References](#references)
 
-### Day 0 - Tools Installation
+### Day 0  
 <details>  
 <summary>  
 Yosys  
@@ -146,7 +146,7 @@ The screenshot of successful installation is shown below:
 </details>
 
 
-### Day 1 - Introduction to Verilog RTL design and Synthesis
+### Day 1  
 <details>
 <summary>
 1.1 Introduction to iverilog design testbench
@@ -240,7 +240,7 @@ The netlist files is as shown below:
 
 </details>
 
-### Day 2 - Timing libs- hierarchical vs flat synthesis and efficient flop coding styles
+### Day 2 
 
 <details>
 <summary>    
@@ -443,10 +443,10 @@ The netlist is as follows: <img width="550" alt="Screenshot from 2023-08-14 19-1
 
 </details>
 
-### Day 3 - Combinational and sequential optmizations
+### Day 3 
 <details>
 <summary>
-Introduction to Logical Optimization
+3.1 Introduction to Logical Optimization
 </summary>  
   
 The combinational logic optimization is mainly to squeeze the logic to get most optimised design that is efficient in terms of power and area.  
@@ -466,7 +466,7 @@ The techniques used for Sequential Logical Optimization are:
 
 <details>
 <summary>
-Combinational Logic Optimizations
+3.2 Combinational Logic Optimizations
 </summary>  
     
 **opt_check**  
@@ -529,7 +529,7 @@ The output structure is as shown:
 
 <details>
 <summary>
-    Sequential Logic Optimizations
+    3.3 Sequential Logic Optimizations
 </summary>  
 Use the following commands to view the verilog files:   
     
@@ -663,7 +663,7 @@ The output structure is shown below:
 
 <details>
 <summary>
-Sequential Optimizations for unused outputs
+3.4 Sequential Optimizations for unused outputs
 </summary>
 
 Let us view the verilog code using the command given below:  
@@ -702,16 +702,59 @@ yosys> show
 The output structure obtained is as shown: <img width="600" alt="Screenshot from 2023-08-14 22-53-1" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/975e565e-490a-446f-ab43-505a49d0ce43">  
 
 
-
-
-
 </details>
 
-### Day 4  
+### Day 4 
 
+<details>
+<summary>
+4.1 GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements    
+</summary>
+</details>
 
-### Day 5  
+<details>
+<summary>
+4.2 Labs on GLS and Synthesis-simulation mismatch    
+</summary>
+</details>
 
+<details>
+<summary>
+4.3 Labs on Synth sim mismatch for blocking statement    
+</summary>
+</details>
+
+### Day 5 
+
+<details>
+<summary>
+5.1 If case constructs   
+</summary>
+</details>
+
+<details>
+<summary>
+5.2 Labs on "incomplete if case"
+</summary>
+</details>
+
+<details>
+<summary>
+5.3 Labs on "incomplete overlapping case"   
+</summary>
+</details>
+
+<details>
+<summary>
+5.4 for loop and for generate   
+</summary>
+</details>
+
+<details>
+<summary>
+5.5 Labs on "for loop" and "for generate"   
+</summary>
+</details>
 
 ## References
 1. https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/
