@@ -1,13 +1,13 @@
 ### Table of Contents
-- [Day 0](#day-0)
-- [Day 1](#day-1)
-- [Day 2](#day-2)
-- [Day 3](#day-3)
+- [Day 0 - Tools Installation](#day-0---tools-installation)
+- [Day 1 - Introduction to Verilog RTL design and Synthesis] - (#day-1---introduction-to-verilog-rtl-design-and-synthesis)
+- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](#day-2-timing-libs,-hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles) 
+- [Day 3 - Combinational and sequential optmizations](#day-3-combinational-and-sequential-optmizations)
 - [Day 4](#day-4)
 - [Day 5](#day-5)
 - [References](#references)
 
-### Day 0
+### Day 0 - Tools Installation
 <details>  
 <summary>  
 Yosys  
@@ -146,7 +146,7 @@ The screenshot of successful installation is shown below:
 </details>
 
 
-### Day 1
+### Day 1 - Introduction to Verilog RTL design and Synthesis
 <details>
 <summary>
 1.1 Introduction to iverilog design testbench
@@ -240,7 +240,7 @@ The netlist files is as shown below:
 
 </details>
 
-### Day 2
+### Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
 <details>
 <summary>    
@@ -443,7 +443,7 @@ The netlist is as follows: <img width="550" alt="Screenshot from 2023-08-14 19-1
 
 </details>
 
-### Day 3
+### Day 3 - Combinational and sequential optmizations
 
 ### Day 4  
 
