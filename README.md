@@ -260,16 +260,50 @@ We have 3 important factors which determines the working of a semiconductor. The
 - As semiconductors sre sensitive to Temperature, even a minimal temperature change may effect the working parameters of the components.
 
 The libraries are mainly characterized to model these variations.  
+.lib file is a bucket of all the standard cells that are available or required for the model.  
+A cell consists of the details of the leakage power of all the input conbinations of the cells and the delay, area occupied and some other features like pin details, timing information etc.  
+
+Observe the following image:  
+<img width="550" alt="Screenshot from 2023-08-14 14-18-06" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/8d5a0273-3d13-460b-9b40-7b50c5fe7aec">  
+From the above image, we can depict that the larger means that the cell employs wider transistors which leads to faster performance.
 
 </details>
 
 <details>
 <summary>
 2.2 Hierarchical vs Flat synthesis  
-</summary>
+</summary>  
 
-    
+
+Open the verilog file using the following command:  
+```
+$ gvim multiple_modules.v
+```
+This is the verilog file: <img width="550" alt="Screenshot from 2023-08-14 14-37-03" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/e6329842-dd11-4be1-8604-5877315c2f3">  
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 </details>
+
+### Day 3
+
+### Day 4  
+
+
+### Day 5  
+
 
 ## References
 1. https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/
