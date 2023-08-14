@@ -279,21 +279,69 @@ Open the verilog file using the following command:
 $ gvim multiple_modules.v
 ```
 This is the verilog file:<img width="550" alt="Screenshot from 2023-08-14 14-37-03" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/7a06bb18-2134-4256-b152-b9546cc96497">  
+Now, launch yosys and use following commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> read_verilog multiple_modules.v
+yosys> synth -top multiple_modules
+```
+The following report will be generated:<img width="600" alt="Screenshot from 2023-08-14 14-47-09" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/62ba86c2-101c-48ac-9f5a-c82f84aa73c5">  
+Read the design to the library using following command:  
+```
+yosys> abc -liberty  ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+```
+Now, when we give the command "**show**", we expect to see the following structure:<img width="550" alt="IMG_0028" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/935948d5-c8f5-4f91-bed5-b17cde43a969">  
+But the following will be displayed:<img width="550" alt="Screenshot from 2023-08-14 15-13-14" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/02edb451-f891-4202-8015-2b4897e264b9">  
+Generate netlist using the following commands:  
+```
+yosys> write_verilog -noattr multiple_modules_hier.v  
+yosys> !gvim multiple_modules_hier.v
+```
+The netlist is as follows:  
+<img width="550" alt="Screenshot from 2023-08-14 15-19-31" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/c9b27065-f882-48f6-aff5-ff7760414461">  
+
+The netlist generated is a hierarchial netlist.  
+
+We use the following command to write the flat netlist:  
+```
+yosys> flatten
+yosys> write_verilog -noattr multiple_modules_flat.v
+yosys> !gvim multiple_modules_flat.v
+```
+The following flat netlist will be generated:  
+<img width="550" alt="Screenshot from 2023-08-14 15-24-11" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/aad73976-d1c2-4626-99da-7b608a2278af">  
+In this flattened netlist we can see the instantiation of or gate. We can view the flattened structure using the following command:  
+```
+yosys> show
+```
+The structure is as follows: <img width="550" alt="Screenshot from 2023-08-14 15-26-29" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/ff8fccb8-5319-477d-b4da-418cbc64a303">  
+
+We can also do the entire process/synthesis even for a single submodule using the following command:  
+```
+yosys> synth -top sub_module1
+```
+</details>
+<details>
+<summary>
+2.3 Various Flop coding styles and Optimization
+</summary>
+
+For any circuit in digital design, the output is going to change only after the propagation delay after applying inputs.Due to this delay, there is going to be a glitch in the output.  
+The more number of corcuits, the more glitches we going to experience. Inorder to avoid and fix this glitch, we use **Flops**.  
+The output of the flop will change only on the edge of the clock. Due to this, the glitch will not be propagated to the output. Therefore, The flop will act as a shield and make sure the output is stable.  
+We can code the flop as synchronous, asynchronous or both.  
 
 
+Let us take a look at the aynchronous flop. Use the following commands:  
+```
+$ iverilog dff_asyncres.v tb_dff_asyncres.v
+$ ./a.out
+$ gtkwave tb_dff_asyncres.vcd
+```
+We obtain the following output:  
+<img width="550" alt="Screenshot from 2023-08-14 16-53-59" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/56151b22-ddef-4183-b008-5d2bc44b9389">  
 
-
-
-
-
-
-
-
-
-
-
-
- 
 
 
 
