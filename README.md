@@ -1,4 +1,4 @@
-### Table of Contents
+![image](https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/353d3e56-3c5c-4c43-97e8-8e819e485ac5)### Table of Contents
 - [Day 0](#day-0)
 - [Day 1](#day-1)
 - [Day 2](#day-2)
@@ -333,7 +333,7 @@ The output of the flop will change only on the edge of the clock. Due to this, t
 We can code the flop as synchronous, asynchronous or both.  
 
 
-Let us take a look at the aynchronous flop. Use the following commands:  
+Let us take a look at the aynchronous reset flop. Use the following commands:  
 ```
 $ iverilog dff_asyncres.v tb_dff_asyncres.v
 $ ./a.out
@@ -341,6 +341,116 @@ $ gtkwave tb_dff_asyncres.vcd
 ```
 We obtain the following output:  
 <img width="550" alt="Screenshot from 2023-08-14 16-53-59" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/56151b22-ddef-4183-b008-5d2bc44b9389">  
+
+Now, let us observe the asynchronous set flop. Use the following commands:  
+```
+$ iverilog dff_async_set.v tb_dff_async_set.v
+$ ./a.out
+$ gtkwave tb_dff_async_set.vcd
+```
+The output is shown below:
+<img width="550" alt="Screenshot from 2023-08-14 16-58-03" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/30ef54f2-d786-431e-8a2d-be3f01aa81e1">  
+
+Now, let us synthesize the Flop circuits using yosys.  
+
+**Asynchronous reset flop**  
+
+Use the commands given below:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_asyncres.v 
+yosys> synth -top dff_asyncres
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+We obtain the following structure of Flop: <img width="550" alt="Screenshot from 2023-08-14 17-22-38" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/44e67c75-6bd4-4220-8ae2-7ecab5e3f3a4">  
+
+**Asynchronous Set Flop**  
+Use the following commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_async_set.v 
+yosys> synth -top dff_async_set
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+ We obtain the asynchronous set flop structure as shown: <img width="550" alt="Screenshot from 2023-08-14 17-27-12" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/4ef7e1c6-c813-4181-9fb3-4de3919ed799">  
+
+ **Synchronous Reset Flop**  
+ Use the following commands:  
+ ```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_syncres.v 
+yosys> synth -top dff_syncres
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure of synchronous reset flop is as follows: <img width="550" alt="Screenshot from 2023-08-14 17-31-38" alt="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/6adda943-bf13-4b94-945c-f7dcbefdb7c6">  
+
+Open the mult files using following command:
+```
+$ gvim mult_*.v -o
+```
+The screen pops up as shown: <img width="550" alt="Screenshot from 2023-08-14 18-57-13" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/c51fb467-794f-4b92-8b7f-8d6567dd5017">  
+
+Now synthesis using yosys. Use the below commands:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog mult_2.v 
+yosys> synth -top mul2
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+Thw following structure shows up: <img width="550" alt="Screenshot from 2023-08-14 19-05-40" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/cc072a2c-6b6f-45ad-96a8-780066791835">  
+
+Let us generate the netlist using the following commands:
+```
+yosys> write_verilog -noattr mul2_net.v
+yosys> !gvim mul2_net.v
+```
+The netlist is as follows: <img width="550" alt="Screenshot from 2023-08-14 19-07-34" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/4e96bc86-eb8c-4450-b6ef-577f5f02feb8">  
+
+Let us now synthesize mult_8 using following commands:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog mult_8.v 
+yosys> synth -top mult8
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The ouput structure is shown below: 
+<img width="550" alt="Screenshot from 2023-08-14 19-12-20" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/357a914e-244d-4499-955b-1ae52fc5bf13">  
+
+Generate netlist using following commands:  
+```
+yosys> write_verilog -noattr mult8_net.v
+yosys> !gvim mult8_net.v
+```
+The netlist is as follows: <img width="550" alt="Screenshot from 2023-08-14 19-13-53" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/5de4c6a3-6386-41d5-a278-e07e8c499709">  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
