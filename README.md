@@ -585,12 +585,79 @@ yosys> show
 The output structure is as follows:
 <img width="550" alt="Screenshot from 2023-08-14 22-20-27" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/bc99beb6-d51d-4c4f-acf0-e694c6abfbbd">  
 
+**dff_const3**  
+Use the following commands to obtain gtkwave:
+
+```
+iverilog dff_const3.v tb_dff_const3.v
+./a.out
+gtkwave tb_dff_const3.vcd
+```
+The following waveform is obtained: <img width="550" alt="Screenshot from 2023-08-14 22-26-40" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/81aef661-1dac-4ca1-b5c6-32af2e9e8c4c">  
 
 
+Use the following commands to synthesize using yosys:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_const3.v 
+yosys> synth -top dff_const3
+yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+
+The output structure is as follows: <img width="550" alt="Screenshot from 2023-08-14 22-27-48" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/811328cd-350d-4043-b6f8-ab44963785c0">  
+
+**dff_const4**  
+Use the following commands to obtain gtkwave:
+
+```
+iverilog dff_const4.v tb_dff_const4.v
+./a.out
+gtkwave tb_dff_const4.vcd
+```
+The output waveforn is shown below:
+<img width="550" alt="Screenshot from 2023-08-14 22-33-00" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/7c78a1db-f5bd-4cd3-adda-9e4f1a66f0d2">  
 
 
+Use the following commands to synthesize using yosys:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_const4.v 
+yosys> synth -top dff_const4
+yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is shown below:  
+<img width="550" alt="Screenshot from 2023-08-14 22-35-10" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/33216d13-8371-4220-95b4-96d899a3ec55">  
+
+**dff_const5**  
+Use the following commands to obtain gtkwave:
+
+```
+iverilog dff_const5.v tb_dff_const5.v
+./a.out
+gtkwave tb_dff_const5.vcd
+```
+The output waveforn is shown below:
+<img width="550" alt="Screenshot from 2023-08-14 22-33-38" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/4704684e-5ec8-4357-9edc-fc92a2d37ff1">  
 
 
+Use the following commands to synthesize using yosys:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_const5.v 
+yosys> synth -top dff_const5
+yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is shown below:  
+<img width="550" alt="Screenshot from 2023-08-14 22-36-19" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/b3d48358-0625-467a-9eff-afe93d29edb6">  
 
 </details>
 
