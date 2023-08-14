@@ -578,7 +578,7 @@ yosys
 yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> read_verilog dff_const2.v 
 yosys> synth -top dff_const2
-yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show
 ```
@@ -602,7 +602,7 @@ yosys
 yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> read_verilog dff_const3.v 
 yosys> synth -top dff_const3
-yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show
 ```
@@ -627,7 +627,7 @@ yosys
 yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> read_verilog dff_const4.v 
 yosys> synth -top dff_const4
-yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show
 ```
@@ -652,12 +652,58 @@ yosys
 yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> read_verilog dff_const5.v 
 yosys> synth -top dff_const5
-yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show
 ```
 The output structure is shown below:  
 <img width="550" alt="Screenshot from 2023-08-14 22-36-19" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/b3d48358-0625-467a-9eff-afe93d29edb6">  
+
+</details>
+
+<details>
+<summary>
+Sequential Optimizations for unused outputs
+</summary>
+
+Let us view the verilog code using the command given below:  
+```
+gvim count_opt.v
+```
+The verilog code is opened: <img width="550" alt="Screenshot from 2023-08-14 22-42-00" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/431f70c3-0951-415f-9be7-da149f9daf4b">  
+
+
+Now, let us synthesize the above code using yosys. Follow the below commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog count_opt.v 
+yosys> synth -top count_opt
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is displayed like: <img width="550" alt="Screenshot from 2023-08-14 22-44-32" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/065693f1-ffe1-4830-ace9-736b33862e58">  
+For a 3 counter we need to see 3 flops in the output but only 1 flop is structured.  
+
+Let us make the following changes to the counte_opt verilog code and run synthesis on the modified file.
+The modified code is shown below:
+<img width="550" alt="Screenshot from 2023-08-14 22-51-45" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/2f428e30-41cc-402f-9a8f-226f3b72eccc">  
+Let us synthesize using yosys:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog count_opt.v 
+yosys> synth -top count_opt
+yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure obtained is as shown: <img width="600" alt="Screenshot from 2023-08-14 22-53-1" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/975e565e-490a-446f-ab43-505a49d0ce43">  
+
+
+
+
 
 </details>
 
