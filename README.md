@@ -1,7 +1,7 @@
 ### Table of Contents
 - [Day 0 - Tools Installation](#day-0---tools-installation)
 - [Day 1 - Introduction to Verilog RTL design and Synthesis](#day-1---introduction-to-verilog-rtl-design-and-synthesis)
-- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](#day-2---timing-libs,-hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles) 
+- [Day 2 - Timing libs- hierarchical vs flat synthesis and efficient flop coding styles](#day-2---timing-libs--hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles) 
 - [Day 3 - Combinational and sequential optmizations](#day-3---combinational-and-sequential-optmizations)
 - [Day 4](#day-4)
 - [Day 5](#day-5)
@@ -240,7 +240,7 @@ The netlist files is as shown below:
 
 </details>
 
-### Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
+### Day 2 - Timing libs- hierarchical vs flat synthesis and efficient flop coding styles
 
 <details>
 <summary>    
@@ -531,6 +531,65 @@ The output structure is as shown:
 <summary>
     Sequential Logic Optimizations
 </summary>  
+Use the following commands to view the verilog files:   
+    
+```
+ gvim dff_const1.v   
+ ```
+ The files are as follow:<img width="550" alt="Screenshot from 2023-08-14 22-06-16" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/9f78ac03-89b2-4675-ba30-f740a1bf61e7">  
+
+ Run the dff_const1 verilog file with the help of the commands below:  
+ ```
+iverilog dff_const1.v tb_dff_const1.v
+./a.out
+gtkwave tb_dff_const1.vcd
+```
+The output is shown below:  
+<img width="550" alt="Screenshot from 2023-08-14 22-09-08" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/e139452c-af5b-47e1-aaec-292a08e3867f">  
+
+Run the dff_const2 verilog file using the below commands:  
+```
+iverilog dff_const2.v tb_dff_const2.v
+./a.out
+gtkwave tb_dff_const2.vcd
+```
+
+The output is as shown below:  
+<img width="550" alt="Screenshot from 2023-08-14 22-12-42" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/cefe7fb5-f045-4f2a-84b6-a3c334417a70">  
+
+Synthesize the above codes with yosys using the below commands:  
+**dff_const1**
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_const1.v 
+yosys> synth -top dff_const1
+yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The structure of the output is shown below:
+<img width="550" alt="Screenshot from 2023-08-14 22-17-00" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/183e0910-3602-404e-afe5-c8e4db962a35">  
+
+
+**dff_const2**  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog dff_const2.v 
+yosys> synth -top dff_const2
+yosys> dfflibmap ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is as follows:
+<img width="550" alt="Screenshot from 2023-08-14 22-20-27" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/bc99beb6-d51d-4c4f-acf0-e694c6abfbbd">  
+
+
+
+
+
+
 
 
 </details>
