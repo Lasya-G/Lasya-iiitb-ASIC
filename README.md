@@ -497,8 +497,40 @@ yosys> show
 The output structure is as shown:
 <img width="550" alt="Screenshot from 2023-08-14 19-54-22" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/768fd11d-893c-4e06-b880-97976ce800b8">  
 
+**opt_check3**  
+synthesize the opt files using the following commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog opt_check3.v 
+yosys> synth -top opt_check3
+yosys> opt_clean -purge 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is as shown:
+<img width="550" alt="Screenshot from 2023-08-14 19-57-58" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/b7a20ddd-b75d-4541-9640-1a634b9ad013">  
 
+**opt_check4**  
+synthesize the opt files using the following commands:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog opt_check4.v 
+yosys> synth -top opt_check4
+yosys> opt_clean -purge 
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> show
+```
+The output structure is as shown:
+<img width="550" alt="Screenshot from 2023-08-14 20-00-38" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/997be825-f7a0-464a-b8b7-f31facae071b">  
 
+</details>
+
+<details>
+<summary>
+    Sequential Logic Optimizations
+</summary>  
 
 
 </details>
