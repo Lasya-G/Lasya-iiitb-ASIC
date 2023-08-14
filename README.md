@@ -254,20 +254,18 @@ We have 3 important factors which determines the working of a semiconductor. The
 
 - The Process will have many variations due to fabrication of the transistors.
 - The change in Voltage will effect the behaviour of the circuit.
-- As semiconductors sre sensitive to temperature, even a minimal temperature change may effect the working parameters of the components.
+- As semiconductors sre sensitive to Temperature, even a minimal temperature change may effect the working parameters of the components.
 
 The libraries are mainly characterized to model these variations.  
 
+</details>
 
+<details>
+<summary>
+2.2 Hierarchical vs Flat synthesis  
+</summary>
 
-
-
-
-
-
-
-
-
+    
 </details>
 
 ## References
