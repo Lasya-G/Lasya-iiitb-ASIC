@@ -895,19 +895,113 @@ yosys> show
 <details>
 <summary>
 5.3 Labs on "incomplete overlapping case"   
-</summary>
+</summary>  
+We will be using the following files for this lab:
+<img width="550" alt="Screenshot from 2023-08-15 19-47-05" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/9706e42f-225b-48b2-823f-583206306c5b">  
+
+Let us simulate the incomp_case file using following commands:
+```
+$ iverilog incomp_case.v tb_incomp_case.v 
+$ ./a.out
+$ gtkwave tb_incomp_case.vcd
+```
+
+The simulation output is as shown below:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/59f87879-e0fb-43e5-bc72-c6b696f368c6">  
+
+The systhesis output structure is as follows: <img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/39af17f8-2c84-4dbf-bbf5-7a787e6bfa78">  
+
+Let us simulate the comp_case file using following commands:
+```
+$ iverilog comp_case.v tb_comp_case.v 
+$ ./a.out
+$ gtkwave tb_comp_case.vcd
+```
+
+The simulation output is as shown below:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/beb9e35d-004f-4f88-a4d0-4ae8d3c77dc8">   
+
+The systhesis output structure is as follows: <img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/1213c8c7-e625-4fea-8712-ac85560971a5">  
+
+Let us simulate the partial_case_assign file using following commands:
+```
+$ iverilog partial_case_assign.v tb_partial_case_assign.v 
+$ ./a.out
+$ gtkwave tb_partial_case_assign.vcd
+```
+
+The simulation output is as shown below:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/09497aca-d285-4285-8e87-c1e278195152">   
+
+
+The systhesis output structure is as follows: <img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/06a1b06d-7443-4fe5-a88d-8ed2d5ccb6be">  
+
+
+
+Let us simulate the bad_case file using following commands:
+```
+$ iverilog bad_case.v tb_bad_case.v 
+$ ./a.out
+$ gtkwave tb_bad_case.vcd
+```
+
+The simulation output is as shown below:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/56589177-db4e-4976-b43d-04f2e2805a14">    
+
+The systhesis output structure is as follows: <img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/dd62a012-e3b5-4f3e-ae08-fd7e50407e95">  
+
+
 </details>
 
 <details>
 <summary>
 5.4 for loop and for generate   
-</summary>
+</summary>  
+
+- **For Loop**:
+  - For look is used in always block.
+  - It is used for excecuting expressions alone.
+
+- **Generate For loop**:
+  - Generate for loop is used for instantaing hardware.
+  - It should be used only outside always block.
+
 </details>
 
 <details>
 <summary>
 5.5 Labs on "for loop" and "for generate"   
-</summary>
+</summary>  
+
+We will be using the following file for this simulations and synthesis:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/6d58a6e9-7755-4fd9-867a-0bd64f7adb0e">  
+
+We will get the following simulation output:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/8677737c-ab0e-42e2-8f20-b919759a45bd">  
+
+The synthesis output structure is as follows:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/2c25c88d-78a5-4f4b-9ad0-4c01ecec5e52">    
+
+Now, let us resimulate the code and observe the output waveform:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/89288bf0-c4e4-4d56-96b1-d995d2b247ed">  
+
+We will be using the following file for this simulations and synthesis:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/e631f10f-a650-46fa-bd20-5df2dfb81016">     
+
+We will get the following simulation output:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/47da29b3-507b-4d34-beeb-a84c87af731f">    
+
+The synthesis output structure is as follows:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/2845cb69-03cb-4aad-8522-45a7bc74ceb1">    
+
+We will be using the following file for this simulations and synthesis:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/40980898-84f0-4491-b4c4-5878709edd51">  
+
+We will get the following simulation output:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/8ec2a9eb-cfb3-4c63-ad7f-f74537cf5226">     
+
+The synthesis output structure is as follows:
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/d2c9d2e9-cd11-4bf2-8ecb-c34710661638">   
 </details>
 
 ## References
