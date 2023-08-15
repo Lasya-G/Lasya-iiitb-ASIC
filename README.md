@@ -710,18 +710,119 @@ The output structure obtained is as shown: <img width="600" alt="Screenshot from
 <summary>
 4.1 GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements    
 </summary>
+
+- **GLS**:  
+  In GLS, we run test bench with netlist as the Design under test instead of the RTL code. Basically, Netlist is logically equal to RTL code as the netlist is obtained by converting RTL code into standard cell gates.  
+  We will use GLS to verify the logical correctness of design after synthesis and also to ensure the timing of the design is met. (run with delay annotations.)
+  <img width="550" alt="Screenshot from 2023-08-15 08-44-29" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/8cd33dbd-9663-4d0a-bfd9-5d3192050fe5">
+
+**Synthesis Simulation Mismatch** can happen due to following reasons:  
+
+- Missing Sensitivity List
+- Blocking vs non-Blocking statemnets
+- Non standard verilog coding
+
+
 </details>
 
 <details>
 <summary>
 4.2 Labs on GLS and Synthesis-simulation mismatch    
 </summary>
+
+Let us take a look at the files we use for this lab: <img width="550" alt="Screenshot from 2023-08-15 10-40-29" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/0bc520f0-4e90-40f0-80d1-b7320874e232">  
+
+Let us simulate the ternary operator code using following commands:  
+```
+$ iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
+The output waveform is shown below:
+<img width="550" alt="Screenshot from 2023-08-15 10-42-31" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/85491f18-f192-4b99-b5c6-9cf002f23582">  
+
+
+Let us synthesize the same using yosys:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog ternary_operator_mux.v 
+yosys> synth -top ternary_operator_mux
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> write_verilog -noattr ternary_operator_mux_net.v
+yosys> show
+```
+The output structure is as shown: <img width="550" alt="Screenshot from 2023-08-15 10-46-41" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/c890ebf1-64ee-40f0-afc3-720f50ae55aa"> 
+
+**Bad_Mux**  
+Let us simulate using following commands:  
+```
+iverilog bad_mux.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+```
+The output obtained is as shown: <img width="550" alt="Screenshot from 2023-08-15 10-52-12" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/b97396ed-8384-409e-ab7c-ada5130dcfbd">  
+
+Let us simulate the same using following commands:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog bad_mux.v 
+yosys> synth -top bad_mux
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> write_verilog -noattr bad_mux_net.v
+```
+Now simulate the bad_mux file again:
+```
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+```
+Let us observe the output waveform again: <img width="550" alt="Screenshot from 2023-08-15 10-58-28" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/26f8fb06-f7cf-4482-b01b-acf0d33f8a20">  
+Now, the output correctly depicts the behaviour of a mux.  
+
+
 </details>
 
 <details>
 <summary>
 4.3 Labs on Synth sim mismatch for blocking statement    
-</summary>
+</summary>  
+
+We will now make use of the following verilog file:
+```
+gvim blocking_caveat.v
+```
+The following file opens: <img width="550" alt="Screenshot from 2023-08-15 19-09-45" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/53a6a261-c286-47ea-9ba5-12e127b72e0e">  
+
+Now simulate the above code:
+```
+$ iverilog blocking_caveat.v tb_blocking_caveat.v 
+$ ./a.out
+$ gtkwave tb_blocking_caveat.vcd
+```
+The output is as follows: <img width="550" alt="Screenshot from 2023-08-15 19-11-23" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/8491efa4-327a-4c4a-a323-6d56755c4626">  
+
+Synthesis the above file using yosys:  
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog blocking_caveat.v 
+yosys> synth -top blocking_caveat
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> write_verilog -noattr blocking_caveat_net.v
+yosys> show
+```
+The following structure is observed in output: <img width="550" alt="Screenshot from 2023-08-15 19-16-00" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/3429a182-6cc0-485a-8fe2-c3a2739aba19">  
+
+Now, simulate the verilog file again using following commands:  
+```
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+```
+The output is as follows: <img width="550" alt="Screenshot from 2023-08-15 19-20-41" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/c14cb78f-fec8-4d28-92f6-7e9ac1573b3d">  
+
 </details>
 
 ### Day 5 
@@ -729,13 +830,66 @@ The output structure obtained is as shown: <img width="600" alt="Screenshot from
 <details>
 <summary>
 5.1 If case constructs   
-</summary>
+</summary>  
+
+- **If constructs**: Mainly used to create the priority logic.In a nested if else construct, the conditions are given priority from top to bottom. Only if the condition is satisfied, if statement is executed and the compiler comes out of the block. If condition fails, it checks for next condition and so on.
+- **Danger/Caution with if**: "Inferred latches" (Bad coding style-incomplete if)
+- **Case constructs**: In case construct, the execution checks for all the case statements and whichever satisfies the statement, that particular statement is executed.If there is no match, the default statement is executed. But here unlike if construct, the execution doesn't stop once statement is satisfied, but it continues further.
+- **Caveats in Case**: They occur due to two reasons- One is incomplete case statements and can be resolved by default case and the other is partial assignments in case statements. And also in case statements we should not have overlapping cases.
 </details>
 
 <details>
 <summary>
 5.2 Labs on "incomplete if case"
-</summary>
+</summary>  
+
+We will use the following files for this lab session. Use the below commands to view the required files:
+```
+gvim *incomp* -o
+```
+<img width="550" alt="image" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/2cd2f881-9a08-4372-9457-4ccad8ed0853"> 
+
+Simulate the verilog file incomp_if using following commands:  
+```
+$ iverilog incomp_if.v tb_incomp_if.v 
+$ ./a.out
+$ gtkwave tb_incomp_if.vcd
+```
+The output wave is as follows: <img width="550" alt="Screenshot from 2023-08-15 19-33-16" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/704f7c61-ddf2-457b-885e-902cff616d4d">  
+
+Let us simulate the file and the output structure using the below commands:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog incomp_if.v 
+yosys> synth -top incomp_if
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> write_verilog -noattr incomp_if_net.v
+yosys> show
+```  
+<img width="550" alt="Screenshot from 2023-08-15 19-37-04" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/321e1373-fa8b-4830-a3b7-125f12cd14b2">  
+
+
+Simulate the verilog file incomp_if2 using following commands:  
+```
+$ iverilog incomp_if2.v tb_incomp_if2.v 
+$ ./a.out
+$ gtkwave tb_incomp_if2.vcd
+```
+The output wave is as follows: <img width="550" alt="Screenshot from 2023-08-15 19-41-46" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/7840b3f0-2469-4831-84e5-6de2ed83126d">   
+
+Let us simulate the file and the output structure using the below commands:
+```
+yosys
+yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+yosys> read_verilog incomp_if2.v 
+yosys> synth -top incomp_if2
+yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys> write_verilog -noattr incomp_if2_net.v
+yosys> show
+```  
+<img width="550" alt="Screenshot from 2023-08-15 19-43-39" src="https://github.com/Lasya-G/Lasya-iiitb-ASIC/assets/140998582/4342965f-a162-4ac5-a9df-4f242ff66432">  
+
 </details>
 
 <details>
